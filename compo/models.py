@@ -6,19 +6,19 @@ from django.forms import ModelForm
 # Models
 #---------------
 
+class Company(models.Model):
+    name = models.CharField(max_length=200)
+    ticker = models.CharField(max_length=10)
+    start_price = models.DecimalField(decimal_places=2, max_digits=10)
+    end_price = models.DecimalField(decimal_places=2, max_digits=10)
+    #current_price = models.DecimalField()
+
+
 class Trader(models.Model):
     email = models.EmailField()
-    company1 = models.ForeignKey(Company)
-    company2 = models.ForeignKey(Company)
-    company3 = models.ForeignKey(Company)
-
-
-class Company(models.Model):
-    name = models.CharField()
-    ticker = models.CharField(max_length=10)
-    start_price = models.DecimalField()
-    end_price = models.DecimalField()
-    #current_price = models.DecimalField()
+    companies = models.ManyToManyField(Company)
+    #company_two = models.ForeignKey(Company)
+    #company_three = models.ForeignKey(Company)
 
 
 

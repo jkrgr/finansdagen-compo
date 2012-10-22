@@ -9,3 +9,6 @@ def join_compo_view(request):
     else:
         form = TraderForm()
         t = get_template('compo.html')
+        c = RequestContext(request, {'form':form})
+        return HttpResponse(t.render(c))
+
