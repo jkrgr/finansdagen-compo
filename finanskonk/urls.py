@@ -7,6 +7,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'compo.views.join_compo_view', name='join'),
+	url(r'^start_compo/', 'compo.views.compo_start'),
     # url(r'^finanskonk/', include('finanskonk.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

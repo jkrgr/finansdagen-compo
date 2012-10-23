@@ -25,5 +25,4 @@ def netfonds_price(ticker):
 	last_line = raw_data[len(raw_data)-1]
 	datasplit = last_line.split('\t')
 	price = datasplit[1]
-	data = {'ticker': ticker, 'price': price}
-	return data
+	return price

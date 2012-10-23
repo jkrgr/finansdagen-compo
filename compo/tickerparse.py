@@ -10,3 +10,4 @@ def tickerparse():
 		ticker_data.append(tickerdata[1])
 		ticker_name_pair.append(ticker_data)
 	return ticker_name_pair
+print tickerparse
