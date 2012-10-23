@@ -18,6 +18,8 @@ class Company(models.Model):
     percent_change = models.DecimalField(decimal_places=2, max_digits=10)
     #current_price = models.DecimalField()
     objects = CompanyManager()
+    def __unicode__(self):
+        return self.name
 class Trader(models.Model):
     email = models.EmailField()
     companies = models.ManyToManyField(Company)
