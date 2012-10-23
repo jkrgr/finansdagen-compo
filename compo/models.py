@@ -1,5 +1,5 @@
 from django.db import models
-from django.forms import ModelForm
+from django import forms
 
 
 #---------------
@@ -26,7 +26,11 @@ class Trader(models.Model):
 # Forms
 #---------------
 
-class TraderForm(ModelForm):
+class TraderForm(forms.ModelForm):
+    entries = forms.ModelMultipleChoiceField(
+        queryset=Company.objects.all(),
+        widget=forms.CheckboxSelectMultiple)
+
     class Meta:
         model = Trader
 
