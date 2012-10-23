@@ -28,6 +28,12 @@ def compo_start(request):
 				obj = Company.objects.get(ticker=ticker)
 				obj.start_price = price
 				obj.save()
+		else:
+			price = netfonds_price_yesterday(ticker)
+			if Company.objects.filter(ticker=ticker).exists():
+				obj = Company.objects.get(ticker=ticker)
+				obj.start_price = price
+				obj.save()
 	return HttpResponse("Done!")
 def compo_end(request):
 	for pair in ticker_pair:
