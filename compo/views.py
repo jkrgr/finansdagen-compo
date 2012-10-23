@@ -32,7 +32,8 @@ def compo_end(request):
 		price = netfonds_price(ticker)
 		if price != "price":
 			#Company.objects.filter(ticker=pair[0]).update(end_price=price)
-			obj = Company.objects.get(ticker=ticker)
-			obj.end_price = price
-			obj.save()
+			if Company.objects.filter(ticker=ticker).exists():
+				obj = Company.objects.get(ticker=ticker)
+				obj.end_price = price
+				obj.save()
 	return HttpResponse("Done!")
