@@ -24,7 +24,7 @@ def compo_start(request):
 		ticker = pair[1]+".OSE"
 		price = netfonds_price(ticker)
 		if price != "price":
-			company = Company.objects.create_company(pair[0],ticker,price,0.0)
+			company = Company.objects.create_company(pair[0],ticker,price,0.0,0.0)
 	return HttpResponse("Done!")
 def compo_end(request):
 	for pair in ticker_pair:
@@ -35,5 +35,6 @@ def compo_end(request):
 			if Company.objects.filter(ticker=ticker).exists():
 				obj = Company.objects.get(ticker=ticker)
 				obj.end_price = price
+				obj.percent_change = float((obj.start_price))/float(price)
 				obj.save()
 	return HttpResponse("Done!")
