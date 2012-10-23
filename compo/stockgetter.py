@@ -26,3 +26,12 @@ def netfonds_price(ticker):
 	datasplit = last_line.split('\t')
 	price = datasplit[1]
 	return price
+def netfonds_price_yesterday(ticker):
+	base_url = 'http://www.netfonds.no/quotes/tradedump.php?date=20121023&paper='
+	datatype_url = '&csv_format=txt'
+	url = base_url + ticker + datatype_url
+	raw_data = urlopen(url).readlines()
+	last_line = raw_data[len(raw_data)-1]
+	datasplit = last_line.split('\t')
+	price = datasplit[1]
+	return price
