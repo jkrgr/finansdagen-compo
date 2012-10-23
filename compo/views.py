@@ -26,3 +26,13 @@ def compo_start(request):
 		if price != "price":
 			company = Company.objects.create_company(pair[0],ticker,price,0.0)
 	return HttpResponse("Done!")
+def compo_end(request):
+	for pair in ticker_pair:
+		ticker = pair[1]+".OSE"
+		price = netfonds_price(ticker)
+		if price != "price":
+			#Company.objects.filter(ticker=pair[0]).update(end_price=price)
+			obj = Company.objects.get(ticker=ticker)
+			obj.end_price = price
+			obj.save()
+	return HttpResponse("Done!")
