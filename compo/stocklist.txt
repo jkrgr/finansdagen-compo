@@ -1,4 +1,3 @@
-name	paper	last	bid	offer	change	open	low	high	prev_price	volume	bid_depth_total	offer_depth_total
 ABG Sundal Collier Holding	ASC	3.92	3.92	3.97	-0.07	3.8	3.8	3.92	3.99	23244	121909	40981
 AF Gruppen	AFG	57.5	57.25	57.5	0.25	57.5	57.5	57.5	57.25	4000	8490	113451
 AGR Group	AGR	0	8.55	9.	0	0	0	0	9	0	6234	6307
