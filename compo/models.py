@@ -8,7 +8,6 @@ from django import forms
 class CompanyManager(models.Manager):
     def create_company(self, name, ticker, start_price, end_price,percent_change):
         company = self.create(name=name,ticker=ticker,start_price=start_price,end_price=end_price,percent_change=percent_change)
-        # do something with the book
         return company
 
 class Company(models.Model):
@@ -18,11 +17,6 @@ class Company(models.Model):
     end_price = models.DecimalField(decimal_places=2, max_digits=10)
     percent_change = models.DecimalField(decimal_places=2, max_digits=10)
     #current_price = models.DecimalField()
-    '''
-    def create(self, name, ticker, start_price, end_price):
-        company = self.create(name=name,ticker=ticker,start_price=start_price,end_price=end_price)
-        return company
-    '''
     objects = CompanyManager()
 class Trader(models.Model):
     email = models.EmailField()
